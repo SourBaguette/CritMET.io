@@ -1,0 +1,14 @@
+.cardImage{
+    height: 200px;
+    width: 100%;
+}
+
+.cardBody{
+    height: 100px;
+    width: 100%;
+}
+
+.eventsTitle{
+    text-align:center;
+    padding: 70px 0px 30px;
+}
