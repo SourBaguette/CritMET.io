@@ -1,0 +1,44 @@
+.AboutMeContainer{
+    display: grid;
+    grid-template-columns: 40% 60%;
+    width: 90%;
+    margin: auto;
+    margin-top: 60px;
+}
+
+.ResponsiveImage{
+    width: 100%;
+    height: auto;
+}
+
+.PersonalInfo{
+    margin-left: 30px;
+}
+
+@media (max-width: 1200px){
+    .AboutMeContainer{
+        display: block;
+    }
+
+    .ResponsiveImage{
+        float: left;
+        width: 60%;
+        height: auto;
+        margin-right: 15px;
+        margin-bottom: 10px;
+    }
+
+    .PersonalInfo{
+        margin-left: 0px;
+    }
+}
+
+@media (max-width: 768px){
+    .ResponsiveImage{
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px){
+    
+}

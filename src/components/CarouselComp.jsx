@@ -15,7 +15,7 @@ function CarouselComp() {
                         alt="First slide"
                     />
                     <Carousel.Caption>
-                        <h2>Welcome to the webpage of the Resource and Environmental Studies Research Group at Constructor University.</h2>
+                        <h2>Welcome to the QuARUm webpage! On this page you find general information about QuARUm as well as our latest results and upcoming events.</h2>
                         {/* <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> */}
                     </Carousel.Caption>
                 </Carousel.Item>

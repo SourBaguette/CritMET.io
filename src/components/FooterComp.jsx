@@ -9,7 +9,7 @@ export default function FooterComp() {
                     <img style={{height:30, width:30, marginRight:5 }} src={logo} /><p style={{fontSize:25}}>CritMET</p>
                 </div>
                 <div className="otherSpace">
-                    <p>About</p>
+                    <p href="/About">About</p>
                     <p>Privacy</p>
                     <p>Licensing</p>
                     <p>Contact</p>

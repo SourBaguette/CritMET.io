@@ -17,9 +17,10 @@ function CardComp() {
     return (
         <>
             <div className='eventsTitle'>
-                <h1>Upcoming Events</h1>
+                <p>Upcoming Events</p>
+                <hr></hr>
             </div>
-            <Container className="d-flex justify-content-center" style={{paddingBottom:'70px'}}>
+            <Container className="d-flex justify-content-center" style={{paddingBottom:'0px'}}>
                 <Row xs={1} md={3} className="g-4">
                     {Array.from({ length: 3 }).map((_, idx) => (
                         <Col key={idx}>

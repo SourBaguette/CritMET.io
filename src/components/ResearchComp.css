@@ -1,4 +1,4 @@
-.researchHeading{
+/* .researchHeading{
     text-align: center;
     padding-top: 55px;
 }
@@ -28,9 +28,30 @@
 .researchBody1 p{
     font-size: 18px;
     padding-left: 25px;
+    padding-bottom: 25px;
 }
 
 .researchBody2 p{
     font-size: 18px;
     padding-right: 25px;
-}
+} */
+
+/* css to fit content within 1200px if the display resolution is higher than 1200px*/
+@media (min-width: 1280px){
+    .researchWrapper{
+      margin: 50px auto 0px;
+      max-width: 1280px;
+    }
+  }
+
+  .fontContent{
+    font-size: 18px;
+  }
+
+  .fontHeading{
+    font-size: 32px;
+  }
+
+  .projectInfo{
+    margin-top: 60px;
+  }

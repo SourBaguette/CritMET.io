@@ -11,7 +11,7 @@ export default function NavbarComp() {
             {['md'].map((expand) => (
                 <Navbar sticky='top' key={expand} expand={expand} className="bg-body-tertiary">
                     <Container fluid>
-                        <Navbar.Brand href="#" style={{fontSize:30}}><img style={{height:30, width:30, marginBottom:10, marginRight:5}} src={logo} />CritMET</Navbar.Brand>
+                        <Navbar.Brand href="/Home" style={{fontSize:30}}><img style={{height:30, width:30, marginBottom:10, marginRight:5}} src={logo} />CritMET</Navbar.Brand>
                         <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
                         <Navbar.Offcanvas
                             id={`offcanvasNavbar-expand-${expand}`}
@@ -29,8 +29,8 @@ export default function NavbarComp() {
                                         title="Our Research"
                                         id={`offcanvasNavbarDropdown-expand-${expand}`}
                                     >
-                                        <NavDropdown.Item href="#action3">Topics</NavDropdown.Item>
-                                        <NavDropdown.Item href="#action4">
+                                        <NavDropdown.Item href="/Topics">Topics</NavDropdown.Item>
+                                        <NavDropdown.Item href="/ResearchProjects">
                                             Research Projects
                                         </NavDropdown.Item>
                                     </NavDropdown>
@@ -42,25 +42,25 @@ export default function NavbarComp() {
                                             title="The People" style={{padding: 5}}
                                             id={`offcanvasNavbarDropdown-expand-${expand}`}
                                         >
-                                            <NavDropdown.Item href="#action3">Michael Bau</NavDropdown.Item>
-                                            <NavDropdown.Item href="#action4">Addis Kokeb Alemu</NavDropdown.Item>
-                                            <NavDropdown.Item href="#action4">Rachid Benaouda</NavDropdown.Item>
-                                            <NavDropdown.Item href="#action4">David Ernst</NavDropdown.Item>
-                                            <NavDropdown.Item href="#action4">Franziska Klimpel</NavDropdown.Item>
-                                            <NavDropdown.Item href="#action4">Lukas Klose</NavDropdown.Item>
-                                            <NavDropdown.Item href="#action4">Timmu Kreitsmann</NavDropdown.Item>
-                                            <NavDropdown.Item href="#action4">Annika Moje</NavDropdown.Item>
-                                            <NavDropdown.Item href="#action4">Keran Zhang</NavDropdown.Item>
-                                            <NavDropdown.Item href="#action4">Anna-Lena Zocher</NavDropdown.Item>
+                                            <NavDropdown.Item href="/MichaelBau">Michael Bau</NavDropdown.Item>
+                                            <NavDropdown.Item href="/AddisKokebAlemu">Addis Kokeb Alemu</NavDropdown.Item>
+                                            <NavDropdown.Item href="/RachidBenaouda">Rachid Benaouda</NavDropdown.Item>
+                                            <NavDropdown.Item href="/DavidErnst">David Ernst</NavDropdown.Item>
+                                            <NavDropdown.Item href="/FranziskaKlimpel">Franziska Klimpel</NavDropdown.Item>
+                                            <NavDropdown.Item href="/LukasKlose">Lukas Klose</NavDropdown.Item>
+                                            <NavDropdown.Item href="/TimmuKreitsmann">Timmu Kreitsmann</NavDropdown.Item>
+                                            <NavDropdown.Item href="/AnnikaMoje">Annika Moje</NavDropdown.Item>
+                                            <NavDropdown.Item href="/KeranZhang">Keran Zhang</NavDropdown.Item>
+                                            <NavDropdown.Item href="/AnnaLenaZocher">Anna-Lena Zocher</NavDropdown.Item>
                                         </NavDropdown>
-                                        <NavDropdown.Item href="#action4">
+                                        <NavDropdown.Item href="/TheLab">
                                             The Lab
                                         </NavDropdown.Item>
                                     </NavDropdown>
 
-                                    <Nav.Link href="#action1">Publications</Nav.Link>
-                                    <Nav.Link href="#action2">Links</Nav.Link>
-                                    <Nav.Link href="#action2">Impressum</Nav.Link>
+                                    <Nav.Link href="/Publications">Publications</Nav.Link>
+                                    <Nav.Link href="/Links">Links</Nav.Link>
+                                    <Nav.Link href="/Impressum">Impressum</Nav.Link>
                                 </Nav>
                             </Offcanvas.Body>
                         </Navbar.Offcanvas>
