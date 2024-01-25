@@ -1,9 +1,17 @@
-import event1 from '../images/eventImages/event1.jpeg';
+import './PublicationCard.css';
 
-export default function PublicationCard(){
-    return (<>
-        <div className="mainContainer w-[200px] h-[300px] bg-gray-400">
-            <p className="font-bold text-4xl">Hello world</p>
-        </div>
-    </>)
+export default function PublicationCard({ title, content, image }){
+
+    return (
+        <>
+            <div className="PublicationCardContainer">
+            <div id="PublicationCardWhole">
+                <p className="PublicationCardTitle">{title}</p>
+                <p className="PublicationCardContent">{content}</p>
+            </div>
+                <img className="PublicationCardImage" src={image} />
+            </div>
+            <hr/>
+        </>
+    )
 }   

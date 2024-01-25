@@ -15,6 +15,13 @@
     margin-left: 30px;
 }
 
+.publicationContainer{
+    width: 90%;
+    margin: auto;
+    margin-top: 60px;
+}
+
+
 @media (max-width: 1200px){
     .AboutMeContainer{
         display: block;

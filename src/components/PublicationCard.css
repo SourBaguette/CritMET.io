@@ -1,0 +1,58 @@
+.PublicationCardContainer{
+    padding: 30px 20px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #F5F7F8;
+    margin: 20px 0px;
+}
+
+.PublicationCardImage{
+    height: 150px;
+    width: 200px;
+    object-fit: contain;
+    margin-left: 10px;
+}
+
+.PublicationCardTitle{
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+.PublicationCardWhole{
+    width: 70%;
+}
+
+@media (max-width: 1200px){
+    .PublicationCardTitle{
+        font-size: 16px;
+        margin-bottom: 25px;
+    }
+
+    .PublicationCardContent{
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 768px){
+    .PublicationCardContainer{
+        flex-direction: column-reverse;
+    }
+
+    .PublicationCardContent{
+        content-visibility: hidden;
+    }
+
+    .PublicationCardImage{
+        height: 100%;
+        width: 100%;
+        margin-left: 0%;
+        margin-bottom: 20px;
+    }
+
+    .PublicationCardTitle{
+        font-size: 14px;
+        margin-bottom: 0px;
+    }
+}
