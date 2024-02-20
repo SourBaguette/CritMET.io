@@ -13,12 +13,14 @@
 
 .PersonalInfo{
     margin-left: 30px;
+    color: #eeeeee;
 }
 
 .publicationContainer{
     width: 90%;
     margin: auto;
     margin-top: 60px;
+    color: white;
 }
 
 

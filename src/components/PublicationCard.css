@@ -2,8 +2,9 @@
     padding: 30px 20px;
     display: flex;
     justify-content: space-between;
-    background-color: #F5F7F8;
+    background-color: #7FC7D9;
     margin: 20px 0px;
+    border-radius: 1rem;
 }
 
 .PublicationCardImage{

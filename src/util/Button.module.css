@@ -1,0 +1,11 @@
+.buttonWrap{
+    padding: 8px 10px;
+    background-color: #365486;
+    border-radius: 5px;
+    color: white;
+}
+
+.buttonWrap:link, .buttonWrap:active, .buttonWrap:hover, .buttonWrap:visited{
+    text-decoration: none;
+    color: white;
+}

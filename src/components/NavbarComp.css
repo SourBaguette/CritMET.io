@@ -1,0 +1,14 @@
+.navBarTest{
+    --bs-navbar-padding-y: 0 rem;
+    background-color: #365486;
+    color: #eeeeee;
+    padding: 5px 0;
+}
+
+.nav-link{
+    color: #eeeeee;
+}
+
+a .nav-link{
+    color: black;
+}

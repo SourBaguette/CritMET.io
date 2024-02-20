@@ -26,8 +26,8 @@ import AnnaLenaZocher from './pages/people/AnnaLenaZocher';
 
 function App() {
   return (
-    <>
-      <NavbarComp />
+    <div className="entirePage">
+      <NavbarComp className="navBarTest"/>
       <div className='containerBody'>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -52,7 +52,7 @@ function App() {
         </Routes>
       </div>
       <FooterComp className="footerBottom"/>
-    </>
+    </div>
   )
 }
 

@@ -1,0 +1,121 @@
+/* css to fit content within 1200px if the display resolution is higher than 1280px*/
+@media (min-width: 1280px){
+    .researchWrapper{
+      margin: 50px auto 0px;
+      max-width: 1280px;
+      color: #eeeeee;
+    }
+  }
+
+  .fontContent{
+    font-size: 18px;
+  }
+
+  .fontHeading{
+    font-size: 36px;
+  }
+
+  .cardContainer{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 30px;
+  }
+
+  .researchCards, .eventCards{
+    margin-top: 60px;
+  }
+
+  .title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .quarumInfo, .projectInfo{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-top: 50px;
+  }
+
+  .researchWrapperImage{
+    width: 550px;
+    height: 350px;
+    border-radius: 220px;
+  }
+
+  .externalLink{
+    height: 26px;
+    width: 26px;
+    color-scheme: #eeeeee;
+  }
+
+  .link{
+    color: #eeeeee;
+  }
+
+  .link:link{
+    text-decoration: none;
+  }
+
+  .link:visited{
+    text-decoration: none;
+  }
+
+  .link:hover{
+    text-decoration: underline;
+  }
+
+/* css to fit content for display resolution from 1024px to 1279px */
+  @media (min-width: 1024px) and (max-width: 1279px){
+    .researchWrapper{
+      margin: 30px auto 0px;
+      max-width: 90%;
+      color: #eeeeee;
+    }
+
+    .researchWrapperImage{
+      width: 420px;
+      height: 275px;
+      border-radius: 190px;
+    }
+
+    .quarumInfo, .projectInfo{
+      gap: 30px;
+    }
+  }
+
+/* css to fit content for display resolution from 768px to 1023px */
+@media (max-width: 1024px){
+  .researchWrapper{
+    margin: 30px auto 0px;
+    max-width: 90%;
+    color: #eeeeee;
+  }
+
+  .researchWrapperImage{
+    width: 100%;
+    height: auto;
+    border-radius: 30px;
+  }
+
+  .quarumInfo{
+    flex-direction: column;
+  }
+
+  .projectInfo{
+    flex-direction: column-reverse;
+  }
+
+  .quarumInfo, .projectInfo{
+    gap: 20px;
+  }
+}
+
+@media (max-width: 1024px){
+  .fontContent{
+    display: none;
+  }
+}

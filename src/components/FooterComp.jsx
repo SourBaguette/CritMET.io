@@ -3,7 +3,7 @@ import './FooterComp.css';
 
 export default function FooterComp() {
     return (
-        <div className="footerContainer bg-body-tertiary">
+        <div className="footerContainer">
             <div className="mainContainer">
                 <div className="logoSpace">
                     <img style={{height:30, width:30, marginRight:5 }} src={logo} /><p style={{fontSize:25}}>CritMET</p>

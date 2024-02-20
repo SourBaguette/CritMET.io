@@ -8,6 +8,11 @@
     display: flex;
 }
 
+.footerContainer{
+    background-color: #365486;
+    color: #eeeeee;
+}
+
 .mainContainer{
     display: flex;
     justify-content: space-between;

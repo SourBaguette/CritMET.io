@@ -4,14 +4,15 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import logo from '../images/earth.png';
+import './NavbarComp.css';
 
 export default function NavbarComp() {
     return (
         <>
             {['md'].map((expand) => (
-                <Navbar sticky='top' key={expand} expand={expand} className="bg-body-tertiary">
+                <Navbar sticky='top' key={expand} expand={expand} className="navBarTest">
                     <Container fluid>
-                        <Navbar.Brand href="/Home" style={{fontSize:30}}><img style={{height:30, width:30, marginBottom:10, marginRight:5}} src={logo} />CritMET</Navbar.Brand>
+                        <Navbar.Brand href="/Home" style={{fontSize:30, color:'white'}}><img style={{height:30, width:30, marginBottom:10, marginRight:5}} src={logo} />CritMET</Navbar.Brand>
                         <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
                         <Navbar.Offcanvas
                             id={`offcanvasNavbar-expand-${expand}`}
@@ -20,11 +21,10 @@ export default function NavbarComp() {
                         >
                             <Offcanvas.Header closeButton>
                                 <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
-                                    
                                 </Offcanvas.Title>
                             </Offcanvas.Header>
                             <Offcanvas.Body>
-                                <Nav className="justify-content-end flex-grow-1 pe-3">
+                                <Nav className="justify-content-end flex-grow-1 pe-3 navBarNavigation">
                                     <NavDropdown
                                         title="Our Research"
                                         id={`offcanvasNavbarDropdown-expand-${expand}`}
