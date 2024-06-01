@@ -7,6 +7,11 @@
     }
   }
 
+  .divider{
+    height: 2px;
+    background-color: white;
+  }
+
   .fontContent{
     font-size: 18px;
   }
@@ -23,8 +28,13 @@
     margin-top: 30px;
   }
 
-  .researchCards, .eventCards{
-    margin-top: 60px;
+  .researchCards{
+    margin: 80px 0px;
+  }
+
+  .eventCards{
+    margin-top: 80px;
+    padding-bottom: 80px;
   }
 
   .title{
@@ -37,7 +47,7 @@
     display: flex;
     align-items: center;
     gap: 40px;
-    margin-top: 50px;
+    margin: 50px 0px;
   }
 
   .researchWrapperImage{
@@ -112,9 +122,7 @@
   .quarumInfo, .projectInfo{
     gap: 20px;
   }
-}
 
-@media (max-width: 1024px){
   .fontContent{
     display: none;
   }

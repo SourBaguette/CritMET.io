@@ -1,45 +1,96 @@
-import DavidErnstImage from '../../images/personalImages/DavidErnstImage.jpeg';
-import '../AboutMe.css';
-import PublicationCard from '../../components/PublicationCard';
-import firstPublication from '../../images/personalPublicationImages/DavidErnstPublications/figure_ernst_and_bau_2021.png';
-import secondPublication from '../../images/personalPublicationImages/DavidErnstPublications/figure_ernst_etal_2022.png';
-import thirdPublication from '../../images/personalPublicationImages/DavidErnstPublications/figure_ernst_etal_2023.png';
-import { peoplePage } from '../../data/textContext';
+import "../AboutMe.css";
+import { peoplePage } from "../../data/textContext";
 
+import Button from "../../util/Button";
+import { db, storage } from "../../config/firebase";
+import { useEffect, useState } from "react";
+import { ref, getDownloadURL, listAll } from "firebase/storage";
+import { getDocs, collection } from "firebase/firestore";
+import PublicationCard from "../../components/PublicationCard";
 
 export default function DavidErnst() {
-    return (
-        <>
-            <div className="AboutMeContainer">
-                <div className="PersonalImage">
-                    <img className="ResponsiveImage" src={DavidErnstImage}></img>
-                </div>
-                <div className="PersonalInfo">
-                    <h1>David Ernst</h1>
-                    <p>
-                        {peoplePage.davidErnst}
-                    </p>
-                </div>
-            </div>
+  // reference to publication list from firestore database
+  const [publicationList, setPublicationList] = useState([]);
+  const publicationCollectionRef = collection(
+    db,
+    "Publications/David Ernst/David Ernst Publications"
+  );
 
-            <div className="publicationContainer">
-                <h1>Publications</h1>
-                <hr/>
-                <PublicationCard 
-                    title="Ernst and Bau (2021): Banded iron formation from Antarctica: The 2.5 Ga old Mt. Ruker BIF and the antiquity of lanthanide tetrad effect and super-chondritic Y/Ho ratio in seawater."
-                    content="Here we report the first detailed geochemical data for Banded Iron-Formation (BIF) from Antarctica. Micro drill cores were taken from adjacent..." 
-                    image={firstPublication} 
-                />
-                <PublicationCard 
-                    title="Ernst et al. (2022): Fractionation of germanium and silicon during scavenging from seawater by marine Fe (oxy)hydroxides: Evidence from hydrogenetic ferromanganese crusts and nodules."
-                    content="Germanium (Ge) and silicon (Si) are an element pair which shows rather coherent behaviour in many geochemical systems. In aqueous systems and in th..." 
-                    image={secondPublication} 
-                /><PublicationCard 
-                    title="Ernst et al. (2023): A first look at the gallium-aluminium systematics of Early Earth’s seawater: Evidence from Neoarchean banded iron formation."
-                    content="Geochemical proxies archived in banded iron formations (BIFs) can provide information on the physico-chemical conditions in the Precambrian atmospher..." 
-                    image={thirdPublication} 
-                />
-            </div>
-        </>
-    );
+  // reference to image from firebase storage
+  const [imageURL, setImageURL] = useState(null);
+  const storageRef = ref(
+    storage,
+    "Profile Images/David Ernst"
+  );
+
+  useEffect(() => {
+    const getPublication = async () => {
+      // read the data from the database
+      // set the publication list
+      try {
+        const data = await getDocs(publicationCollectionRef);
+        const filteredData = data.docs.slice(0,3).map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+        }));
+        setPublicationList(filteredData);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    // reading profile image from firebase storage
+    // setting image to ImageUrl
+    const getImage = async () => {
+      listAll(storageRef)
+        .then((res) => {
+          const imageRef = res.items[0];
+          getDownloadURL(imageRef)
+            .then((url) => {
+              setImageURL(url);
+            })
+            .catch((err) => {
+              console.log("Error getting download URL: ", err)
+            });
+        })
+        .catch((err) => {
+          console.log("Error listing iamges: ", err);
+        });
+    }
+
+    getImage();
+    getPublication();
+  }, []);
+
+  return (
+    <>
+      <div className="AboutMeContainer">
+        <div className="PersonalImage">
+          <img className="ResponsiveImage" src={imageURL}></img>
+        </div>
+        <div className="PersonalInfo">
+          <h1>David Ernst</h1>
+          <p>{peoplePage.davidErnst}</p>
+        </div>
+      </div>
+
+      <div className="publicationContainer">
+        <h1>Publications</h1>
+        <hr />
+        <Button name="View all" link="/Publications" />
+        <div className="cardContainer">
+          {publicationList.map((publication, index) => (
+            <PublicationCard
+              key={publication.id}
+              title={publication.title}
+              author={publication.author}
+              link={publication.link}
+              abstract={publication.abstract}
+              date={publication.date}
+            />
+          ))}
+        </div>
+      </div>
+    </>
+  );
 }

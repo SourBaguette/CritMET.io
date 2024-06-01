@@ -1,0 +1,83 @@
+.main{
+    padding: 30px 20px;
+    color:  #eeeeee;
+}
+
+.profileImage{
+    width: 100%;
+    height: auto;
+    border-radius: 10px;;
+}
+
+.projectAuthor{
+    margin-bottom: 20px;
+    font: bold;
+}
+
+.spaceBetween{
+    height: 80px;
+}
+
+@media (min-width: 480px){
+    .main{
+        padding: 30px 30px;
+    }
+
+    .profileImage{
+        width: 80%;
+        height: auto;
+        
+    }
+
+    .image{
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media (min-width: 769px){
+    .main{
+        padding: 40px;
+    }
+
+    .profileImage{
+        width: 600px;
+        height: auto;
+    }
+}
+
+@media (min-width: 1000px){
+    .main{
+        padding: 60px;
+    }
+
+    .projectContainer{
+        display: flex;
+        justify-content: space-around;
+    }
+    
+    .projectDetails{
+        width: 55%;
+    }
+    
+    .image{
+        width: 40%;
+    }
+
+    .profileImage{
+        width: 100%;
+        height: auto;
+    }
+
+    .spaceBetween{
+        height: 100px;
+    }
+}
+
+@media (min-width: 1200px){
+    .main{
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+}
+

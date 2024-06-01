@@ -1,22 +1,22 @@
-import logo from '../images/earth.png';
-import './FooterComp.css';
+import { Link } from 'react-router-dom';
+import logo from '../images/critMET-logo.png';
+import style from './FooterComp.module.css';
 
 export default function FooterComp() {
+    const currentYear = new Date().getFullYear();
+
     return (
-        <div className="footerContainer">
-            <div className="mainContainer">
-                <div className="logoSpace">
+        <div className={style.footerContainer}>
+            <div className={style.mainContainer}>
+                <div className={style.logoSpace}>
                     <img style={{height:30, width:30, marginRight:5 }} src={logo} /><p style={{fontSize:25}}>CritMET</p>
                 </div>
-                <div className="otherSpace">
-                    <p href="/About">About</p>
-                    <p>Privacy</p>
-                    <p>Licensing</p>
-                    <p>Contact</p>
+                <div className={style.otherSpace}>
+                    <Link to="/Contact" className={style.contact}>Contact</Link>
                 </div>
             </div>
-            <div className="copyright">
-                <h5>&copy;2023 CritMET</h5>
+            <div className={style.copyright}>
+                <h5>&copy;{currentYear} CritMET</h5>
             </div>
         </div>
 

@@ -1,17 +1,24 @@
-import './PublicationCard.css';
+import classes from "./PublicationCard.module.css";
 
-export default function PublicationCard({ title, content, image }){
-
-    return (
-        <>
-            <div className="PublicationCardContainer">
-            <div id="PublicationCardWhole">
-                <p className="PublicationCardTitle">{title}</p>
-                <p className="PublicationCardContent">{content}</p>
-            </div>
-                <img className="PublicationCardImage" src={image} />
-            </div>
-            <hr/>
-        </>
-    )
-}   
+export default function PublicationCard({
+  title,
+  author,
+  date,
+  abstract,
+  link,
+}) {
+  return (
+    <>
+      <div className={classes.PublicationCardContainer}>
+        <a href={link}>
+          <h3>{title}</h3>
+          <div className={classes.publicationInfo}>
+            <p>By: {author}</p>
+            <p>{date}</p>
+          </div>
+          <p className={classes.abstract}>{abstract}</p>
+        </a>
+      </div>
+    </>
+  );
+}

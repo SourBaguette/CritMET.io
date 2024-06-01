@@ -1,5 +1,13 @@
+import FooterComp from "../components/FooterComp";
+import NavbarComp from "../components/NavbarComp";
+import '../App.css';
+
 export default function NoPage(){
     <>
-        <h1>Error 404: Not found</h1>
+        <div className="entirePage">
+            <NavbarComp />
+        </div>
+        <h1>Could not find resource or page.</h1>
+        <FooterComp />
     </>
 }

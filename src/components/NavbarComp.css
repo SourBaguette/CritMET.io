@@ -1,14 +1,21 @@
 .navBarTest{
     --bs-navbar-padding-y: 0 rem;
     background-color: #365486;
-    color: #eeeeee;
     padding: 5px 0;
 }
 
-.nav-link{
+/* .nav-link{
     color: #eeeeee;
-}
+} */
 
-a .nav-link{
+.nav-link .nav-link{
     color: black;
 }
+
+.dropDown{
+    color: white;
+}
+
+/* a .nav-link{
+    color: black;
+} */

@@ -1,0 +1,170 @@
+@media (min-width: 1280px){
+    .contentContainer{
+        max-width: 1280px;
+    }
+}
+
+.headerContainer{
+    background-color: #DDF2EE;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contentContainer{
+    margin: 0 auto;
+}
+
+.contentContainer hr{
+    height: 2px;
+    background-color: white;
+}
+
+
+.imageSection img{
+    width: 550px;
+    height: 550px;
+    object-fit: contain;
+}
+
+.titleSection{
+    width: 30%;
+}
+
+.titleSection h1{
+    font-size: 3.5em;
+}
+
+.titleSection p{
+    font-size: 1.5em;
+}
+
+.projectDescription{
+    padding: 70px 40px;
+    color: #eeeeee;
+}
+
+.projectDescriptionContent{
+    column-count: 2;
+    column-gap: 30px;
+}
+
+.CRMInfo{
+    padding: 40px;
+    color: #eeeeee;
+}
+
+.CRMInfo img{
+    width: 60%;
+    height: auto;
+}
+
+.CRMLogo{
+    display: flex;
+    justify-content: center;
+    padding: 30px 0px;
+}
+
+.CRMInfo p{
+    padding: 30px 0px;
+}
+
+/* For tablets in landscape and laptops */
+@media (min-width: 769px) and (max-width: 1279px){
+    .imageSection img{
+        width: 400px;
+        height: 400px;
+    }
+
+    .titleSection h1{
+        font-size: 2.5em;
+    }
+
+    .titleSection p{
+        font-size: 1em;
+    }
+
+    .CRMInfo img{
+        width: 70%;
+    }
+
+    .CRMLogo{
+        padding: 0px;
+    }
+}
+
+/* For smartphones in landscape and tablets in portrait */
+@media (min-width: 481px) and (max-width: 768px){
+    .headerContainer{
+        display: block;
+        padding: 10%;
+    }
+
+    .imageSection{
+        display: flex;
+        justify-content: center;
+    }
+
+    .imageSection img{
+        width: 350px;
+        height: 350px;
+    }
+
+    .titleSection{
+        width: 100%;
+    }
+
+    .titleSection h1{
+        font-size: 2em;
+    }
+
+    .titleSection p{
+        font-size: 1em;
+    }
+
+    .CRMInfo img{
+        width: 70%;
+    }
+
+    .CRMLogo{
+        padding: 0px;
+    }
+
+    .projectDescriptionContent{
+        column-count: 1;
+    }
+}
+
+/* For smartphones in portrait */
+@media (min-width: 300px) and (max-width: 480px){
+    .headerContainer{
+        padding: 5%;
+        display: block;
+    }
+
+    .imageSection{
+        display: flex;
+        justify-content: center;
+    }
+
+    .imageSection img{
+        width: 80%;
+        height: auto;
+    }
+
+    .titleSection{
+        width: 100%;
+    }
+
+    .titleSection h1{
+        font-size: 2em;
+    }
+
+    .titleSection p{
+        font-size: 1em;
+    }
+
+    .projectDescriptionContent{
+        column-count: 1;
+    }
+}

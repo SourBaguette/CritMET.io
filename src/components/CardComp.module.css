@@ -16,13 +16,47 @@
     color: black;
 }
 
+.subtitleContainer{
+    margin-top: 15px;
+}
+
 .cardContent h3{
     font-size: 22px;
     margin: 5px 0px;
     font-weight: 600;
+    --max-lines: 3;
+    max-height: calc(1.7rem * var(--max-lines));
+    overflow: hidden;
 }
 
-.date, .location{
+.noImageTitle{
+    font-size: 22px;
+    margin: 5px 0px;
+    font-weight: 600;
+    --max-lines: 7;
+    max-height: calc(1.7rem * var(--max-lines));
+    overflow: hidden;
+}
+
+.noImageTitle:hover{
+    white-space: normal;
+    overflow: visible;
+    max-height: unset;
+}
+
+.subtitle{
+    --max-lines: 3;
+    max-height: calc(1.3rem * var(--max-lines));
+    overflow: hidden;
+}
+
+.cardContent, h3:hover{
+    white-space: normal; 
+    overflow:visible;
+    max-height: unset;
+}
+
+.date, .location, .subtitle{
     font-size: 14px;
     margin-bottom: 5px;
 }

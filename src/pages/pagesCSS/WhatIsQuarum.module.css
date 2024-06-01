@@ -1,0 +1,104 @@
+@media (min-width: 1280px){
+    .mainContainer{
+        max-width: 1280px;
+    }
+}
+
+/* For screen sizes 1280px and higher */
+.mainContainer{
+    margin: 0px auto;
+    padding: 40px 0px;
+}
+
+.mainContainer h1{
+    color: #eeeeee;
+    font-size: 45px;
+}
+
+.mainContainer img{
+    width: 60vw;
+    max-width: 1000px;
+    height: 600px;
+    border-radius: 50px;
+    margin: 30px 0px;
+}
+
+.mainContainer p{
+    color: #eeeeee;
+    font-size: 18px;
+    text-align: start;
+    margin-bottom: 60px;
+}
+
+.alignCenter{
+    display: grid;
+    place-items: center;
+}
+
+.logos img{
+    height: 200px;
+    width: auto;
+    border-radius: 0;
+}
+
+.logos{
+    display: flex;
+    gap: 20px;
+}
+
+/* For tablets in landscape and laptops */
+@media (min-width: 769px) and (max-width: 1279px){
+    .mainContainer{
+        margin: 40px 30px;
+    }
+
+    .mainContainer img{
+        width: 70vw;
+        height: auto;
+    }
+
+    .logos img{
+        height: 20vw;
+        width: auto;
+    }
+}
+
+/* For smartphones in landscape and tablets in portrait */
+@media (min-width: 481px) and (max-width: 768px){
+    .mainContainer{
+        margin: 30px 20px;
+    }
+
+    .mainContainer img{
+        width: 100%;
+        height: auto;
+    }
+
+    .logos img{
+        height: 20vw;
+        width: auto;
+    }
+}
+
+/* For smartphones in portrait */
+@media (min-width: 300px) and (max-width: 480px){
+    .mainContainer{
+        margin: 20px 20px;
+    }
+
+    .mainContainer img{
+        width: 100%;
+        height: auto;
+    }
+
+    .logos{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0px;
+    }
+
+    .logos img{
+        width: 60%;
+        height: auto;
+    }
+}

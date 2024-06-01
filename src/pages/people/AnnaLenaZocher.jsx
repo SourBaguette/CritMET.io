@@ -1,23 +1,93 @@
-import DavidErnstImage from '../../images/personalImages/DavidErnstImage.jpeg';
-import '../AboutMe.css';
+import { peoplePage } from "../../data/textContext";
+import "../AboutMe.css";
+
+import Button from "../../util/Button";
+import { db, storage } from "../../config/firebase";
+import { ref, getDownloadURL, listAll } from "firebase/storage";
+import { useEffect, useState } from "react";
+import { getDocs, collection } from "firebase/firestore";
+import PublicationCard from "../../components/PublicationCard";
 
 export default function AnnaLenaZocher() {
-    return (
-        <>
-            <div className="AboutMeContainer">
-                <div className="PersonalImage">
-                    <img className="ResponsiveImage" src={DavidErnstImage}></img>
-                </div>
-                <div className="PersonalInfo">
-                    <h1>Anna-Lena Zocher</h1>
-                    <p>Hey, my name is David, I was born in Wuppertal (Germany), and I studied Geosciences at Ruhr-Universität Bochum (Bachelor) and Economic Geosciences at TU Clausthal (Master). During high school, I had no strong affinity for chemistry. However, that changed, especially during my master's studies in Clausthal, where I investigated trace element distributions in ferromanganese crusts during my master thesis.
-                        <br/><br/>
-                        In 2017 I joined the Geochemistry Workgroup at Constructor University, which was back then still called Jacobs University. The first almost two years I worked on a research project, dealing with the processing of ferromanganese nodules (deep-sea ore precipitates). In January 2019 I started my PhD in the CritMET research group of Michael Bau. In my PhD project, we investigated the behaviour of the critical trace elements Gallium and Germanium together with their respective geochemical partners, Aluminium and Silicon, in the natural environment. Our special focus was on Precambrian banded iron formations, which are great archives for past seawater environments. Banded iron formations are quite old (up to ~3 billion years), layered rocks with alternating iron-rich and silica-rich bands.
-                        <br/><br/>
-                        In July 2023, I successfully finished my PhD and now work as a PostDoc in our CritMET research group. My PostDoc research project is QuARUm, which is a collaboration with the Software Engineering research group at TU Dortmund. QuARUm aims to develop software that supports researchers to assess the quality and suitability of geochemical data with respect to their specific research questions (klick here to read more about QuARUm).
-                    </p>
-                </div>
-            </div>
-        </>
-    );
+  // reference to publications from firebase database
+  const [publicationList, setPublicationList] = useState([]);
+  const publicationCollectionRef = collection(
+    db,
+    "Publications/Anna-Lena Zocher/Anna-Lena Zocher Publications"
+  );
+
+  // reference to image from firebase storage
+  const [imageURL, setImageURL] = useState(null);
+  const storageRef = ref(storage, "Profile Images/Anna-Lena Zocher");
+
+  useEffect(() => {
+    const getPublication = async () => {
+      // read the data from the database
+      // set the publication list
+      try {
+        const data = await getDocs(publicationCollectionRef);
+        const filteredData = data.docs.slice(0, 3).map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+        }));
+        setPublicationList(filteredData);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    // reading profile image from firebase storage
+    // setting image to ImageUrl
+    const getImage = async () => {
+      listAll(storageRef)
+        .then((res) => {
+          const imageRef = res.items[0];
+          getDownloadURL(imageRef)
+            .then((url) => {
+              setImageURL(url);
+            })
+            .catch((err) => {
+              console.log("Error getting download URL: ", err);
+            });
+        })
+        .catch((err) => {
+          console.log("Error listing iamges: ", err);
+        });
+    };
+
+    getImage();
+    getPublication();
+  }, []);
+
+  return (
+    <>
+      <div className="AboutMeContainer">
+        <div className="PersonalImage">
+          <img className="ResponsiveImage" src={imageURL}></img>
+        </div>
+        <div className="PersonalInfo">
+          <h1>Anna Lena Zocher</h1>
+          <p>{peoplePage.annaLenaZocher}</p>
+        </div>
+      </div>
+
+      <div className="publicationContainer">
+        <h1>Publications</h1>
+        <hr />
+        <Button name="View all" link="/Publications" />
+        <div className="cardContainer">
+          {publicationList.map((publication, index) => (
+            <PublicationCard
+              key={publication.id}
+              title={publication.title}
+              author={publication.author}
+              link={publication.link}
+              abstract={publication.abstract}
+              date={publication.date}
+            />
+          ))}
+        </div>
+      </div>
+    </>
+  );
 }
