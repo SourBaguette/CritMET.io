@@ -5,8 +5,9 @@ import Button from "../../util/Button";
 import { db, storage } from "../../config/firebase";
 import { ref, getDownloadURL, listAll } from "firebase/storage";
 import { useEffect, useState } from "react";
-import { getDocs, collection } from "firebase/firestore";
+import { getDocs, collection, orderBy, query } from "firebase/firestore";
 import PublicationCard from "../../components/PublicationCard";
+import { Link } from "react-router-dom";
 
 export default function KeranZhang() {
   // importing data for publications
@@ -21,20 +22,21 @@ export default function KeranZhang() {
     const storageRef = ref(storage, "Profile Images/Keran Zhang");
 
     useEffect(() => {
-        const getPublication = async () => {
-          // read the data from the database
-          // set the publication list
-          try {
-            const data = await getDocs(publicationCollectionRef);
-            const filteredData = data.docs.slice(0, 3).map((doc) => ({
-              ...doc.data(),
-              id: doc.id,
-            }));
-            setPublicationList(filteredData);
-          } catch (err) {
-            console.log(err);
-          }
-        };
+      const getPublication = async () => {
+        // read the data from the database
+        // set the publication list
+        try {
+          const q = query(publicationCollectionRef, orderBy('date', 'asc'));
+          const data = await getDocs(q);
+          const filteredData = data.docs.slice(0, 3).map((doc) => ({
+            ...doc.data(),
+            id: doc.id,
+          }));
+          setPublicationList(filteredData);
+        } catch (err) {
+          console.log(err);
+        }
+      };
     
         // reading profile image from firebase storage
         // setting image to ImageUrl
@@ -72,9 +74,13 @@ export default function KeranZhang() {
       </div>
 
       <div className="publicationContainer">
-        <h1>Publications</h1>
         <hr />
-        <Button name="View all" link="/Publications" />
+        <div className="title">
+          <h1>Publications</h1>
+          <Link to="/Publications">
+            <Button name="View all" />
+          </Link>
+        </div>
         <div className="cardContainer">
           {publicationList.map((publication, index) => (
             <PublicationCard

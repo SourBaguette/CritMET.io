@@ -9,6 +9,12 @@ export default function CardComp({
   location,
   subtitle,
 }) {
+  // Convert eventDate to a timestamp and then to a JavaScript Date object
+  const ts = (eventDate.seconds+eventDate.nanoseconds/1000000000)*1000;
+  const newDate = new Date(ts);
+
+  // Convert the JavaScript Date object to human-readable string
+  const formattedDate = newDate.toLocaleString()
   return (
     <>
       {image ? (
@@ -26,7 +32,9 @@ export default function CardComp({
               <a className={style.link} href={link}>
                 <h3>{title}</h3>
                 <p className={style.date}>
-                  <b>Event Date:</b> {eventDate}
+                  {/* Render the formatted date string */}
+                  <b>Date: </b>
+                  {formattedDate}
                 </p>
                 <p className={style.location}>
                   <b>Location:</b> {location}

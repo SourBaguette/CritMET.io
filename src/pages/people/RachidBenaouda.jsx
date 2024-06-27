@@ -5,8 +5,9 @@ import Button from "../../util/Button";
 import { db, storage } from "../../config/firebase";
 import { useEffect, useState } from "react";
 import { ref, getDownloadURL, listAll } from "firebase/storage";
-import { getDocs, collection } from "firebase/firestore";
+import { getDocs, collection, query, orderBy } from "firebase/firestore";
 import PublicationCard from "../../components/PublicationCard";
+import { Link } from "react-router-dom";
 
 export default function RachidBenaouda() {
   // importing data for publications
@@ -25,7 +26,8 @@ export default function RachidBenaouda() {
       // read the data from the database
       // set the publication list
       try {
-        const data = await getDocs(publicationCollectionRef);
+        const q = query(publicationCollectionRef, orderBy('date', 'asc'));
+        const data = await getDocs(q);
         const filteredData = data.docs.slice(0, 3).map((doc) => ({
           ...doc.data(),
           id: doc.id,
@@ -72,9 +74,13 @@ export default function RachidBenaouda() {
       </div>
 
       <div className="publicationContainer">
-        <h1>Publications</h1>
         <hr />
-        <Button name="View all" link="/Publications" />
+        <div className="title">
+          <h1>Publications</h1>
+          <Link to="/Publications">
+            <Button name="View all" />
+          </Link>
+        </div>
         <div className="cardContainer">
           {publicationList.map((publication, index) => (
             <PublicationCard

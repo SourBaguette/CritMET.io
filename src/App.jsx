@@ -11,6 +11,7 @@ import Impressum from './pages/Impressum';
 import WhatIsQuarum from './pages/WhatIsQuarum';
 import ProjectNews from './pages/ProjectNews';
 import CRMgeothermal from './pages/Our Research/CRMgeothermal';
+import Events from './pages/Events';
 // importing pages of people
 import DavidErnst from './pages/people/DavidErnst';
 import MichaelBau from './pages/people/MichaelBau';
@@ -53,7 +54,8 @@ const router = createBrowserRouter([
       { path: 'ProjectNews', element: <ProjectNews />},
       { path: 'CRMgeothermal', element: <CRMgeothermal />},
       { path: 'BachelorTopics', element: <BachelorTopics />},
-      { path: 'Contact', element: <Contact />}
+      { path: 'Contact', element: <Contact />},
+      { path: 'Events', element: <Events />}
     ]
   }
 ]);

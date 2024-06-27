@@ -1,0 +1,14 @@
+.cardContainer{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 40px 20px;
+  }
+
+  @media (min-width: 1280px){
+    .mainContainer{
+      margin: 0px auto;
+      max-width: 1280px;
+    }
+}

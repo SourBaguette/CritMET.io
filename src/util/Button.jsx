@@ -1,7 +1,7 @@
 import style from './Button.module.css';
 
-export default function Button({ name, link }){
+export default function Button({ name }){
     return (
-        <a href={link} className={style.buttonWrap}>{name}</a>
+        <p className={style.buttonWrap}>{name}</p>
     );
 }

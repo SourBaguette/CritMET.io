@@ -6,10 +6,9 @@ import projectNews from "../images/projectNews.jpeg";
 import externalLink from "../images/icons/external-link.svg";
 
 import { Link } from "react-router-dom";
-import { db, storage } from "../config/firebase";
+import { db } from "../config/firebase";
 import { useEffect, useState } from "react";
-import { ref, getDownloadURL, listAll } from "firebase/storage";
-import { getDocs, collection } from "firebase/firestore";
+import { getDocs, collection, query, orderBy } from "firebase/firestore";
 
 export default function BodyComp() {
   // reference to event list from firestore database
@@ -19,16 +18,13 @@ export default function BodyComp() {
     "Events"
   );
 
-  // reference to event image from firebase storage
-  const [imageURL, setImageURL] = useState([]);
-  const storageRef = ref(storage, "Event Images");
-
   useEffect(() => {
     const getEventDetails = async () => {
       // read the data from the database
       // set the publication list
       try {
-        const data = await getDocs(eventCollectionRef);
+        const q = query(eventCollectionRef, orderBy('date', 'asc'));
+        const data = await getDocs(q);
         // gets only the latest 3 events data
         const filteredData = data.docs.slice(0, 3).map((doc) => ({
           ...doc.data(),
@@ -40,26 +36,6 @@ export default function BodyComp() {
       }
     };
 
-    // reading event image from firebase storage
-    // setting image to ImageUrl
-    const getImage = async () => {
-        try {
-          const res = await listAll(storageRef);
-          const imageURLs = [];
-
-          for (let i=0; i<Math.min(3, res.items.length); i++){
-            const imageRef = res.items[i];
-            const url = await getDownloadURL(imageRef);
-            imageURLs.push(url);
-          }
-          setImageURL(imageURLs);
-        }
-        catch(err){
-          console.log("Error getting images: ", err);
-        }
-    };
-
-    getImage();
     getEventDetails();
   }, []);
 
@@ -109,13 +85,15 @@ export default function BodyComp() {
       <div className={style.eventCards}>
         <div className={style.title}>
           <h1>Upcoming Events</h1>
-          <Button name="View all" link="https://www.youtube.com/" />
+          <Link to="/Events">
+            <Button name="View all" />
+          </Link>
         </div>
         <div className={style.cardContainer}>
-          {eventList.map((event, index) => (
+          {eventList.map((event) => (
             <CardComp 
               key={event.id}
-              image={imageURL[index]}
+              image={event.image}
               title={event.title}
               publishedDate=""
               link={event.link}
